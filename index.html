@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="/mini-coi.js" scope="./"></script> 
-    <title>PyScript Application Template</title>
-
-    <!-- Recommended meta tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <!-- PyScript CSS -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2024.6.1/core.css">
-
-    <!-- This script tag bootstraps PyScript -->
-    <script type="module" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
-</head>
-<body>
-    <script type="mpy" src="./main.py" config="./config.json" terminal></script>
-</body>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>Spy Game</title>
+          <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+  </head>
+  <body>
+    <h1>Spy Game</h1>
+    <div id="output"></div>
+    <script type="py" src="./main.py" config="./pyscript.json"></script>
+    <textarea id="locations" placeholder="Locations..." rows="4" cols="50"></textarea>
+    <textarea id="players" placeholder="Players..." rows="4" cols="50"></textarea>
+    <div id="output"></div>
+    <script type="py" src="./main.py" config="./pyscript.json"></script>
+    <button id="submit" py-click="submit_event">Submit</button>
+  </body>
 </html>

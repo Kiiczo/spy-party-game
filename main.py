@@ -26,7 +26,7 @@ revealed = False
 spies_list = ""
 
 async def fetch_locations():
-    url = "https://spygame-ai.witold-zzak.workers.dev/?query=miejsca"
+    url = "https://spygame-ai.witold-zzak.workers.dev"
     response = await fetch(url)
     text = await response.text()
     generated = [line.strip() for line in text.splitlines() if line.strip()]

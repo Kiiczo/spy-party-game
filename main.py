@@ -25,8 +25,8 @@ spies_list = ""
 def submit_event(event=None):
     global locations, players, spies, location, current_player, revealed, spies_list
 
-    locations = locations_text.value.strip().splitlines()
-    players = players_text.value.split()
+    locations = [l.strip() for l in locations_text.value.strip().splitlines() if l.strip()]
+    players = [p.strip() for p in players_text.value.replace('\n', ' ').split() if p.strip()]
 
     spy_count = int(spy_count_input.value)
     if spy_count < 1: spy_count = 1

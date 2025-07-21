@@ -98,6 +98,9 @@ def reset_game(event=None):
     player_name.innerText = ""
     player_progress.innerText = ""
 
+def generate_list(event=None):
+    locations_text.value = "Generate"
+
 game.classList.add("hidden")
 reset_btn.style.display = "none"
 next_btn.style.display = "none"

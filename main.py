@@ -13,6 +13,7 @@ role_box = document.getElementById("role-box")
 reveal_btn = document.getElementById("reveal-btn")
 next_btn = document.getElementById("next-btn")
 reset_btn = document.getElementById("reset-btn")
+generate_btn = document.getElementById("generate-btn")
 
 locations = []
 players = []

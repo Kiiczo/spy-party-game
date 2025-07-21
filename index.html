@@ -106,12 +106,12 @@
             </div>
             <label for="locations">Locations</label>
             <textarea id="locations" rows="4" placeholder="Enter locations (one per line)&#10;e.g.&#10;Beach&#10;Library&#10;Restaurant"></textarea>
-            <button id="ai-btn>GenerateAI</button>
             <label for="players">Players</label>
             <textarea id="players" rows="3" placeholder="Enter player names (separated by spaces or new lines)&#10;e.g. Alice Bob Charlie Diana"></textarea>
             <label for="spy-count">Number of spies</label>
             <input type="number" id="spy-count" min="1" value="1" max="10" />
             <button class="btn btn-primary" id="start-btn" py-click="submit_event">Start Game</button>
+            <button class="btn btn-blue" id="generate-btn">Generate list by ai</button>
         </div>
         <div id="game" class="hidden">
             <div class="center" id="player-progress"></div>

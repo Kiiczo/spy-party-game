@@ -25,11 +25,13 @@ current_player = 0
 revealed = False
 spies_list = ""
 
-async def fetch_locations():
-    url = "https://spygame-ai.witold-zzak.workers.dev"
+async def fetch_locations(addition):
+    generate_btn.style.backgroundColor = "grey"  
+    url = "https://spygame-ai.witold-zzak.workers.dev" + addition
     response = await fetch(url)
     text = await response.text()
     generated = [line.strip() for line in text.splitlines() if line.strip()]
+    generate_btn.style.backgroundColor = "#1d4ed8" 
     return generated
 
 def submit_event(event=None):
@@ -108,9 +110,18 @@ def reset_game(event=None):
     player_progress.innerText = ""
 
 async def generate_list(event=None):
-    generated = await fetch_locations()
-    #locations_text.value = prompt_text.value
-    locations_text.value = generated
+
+    prompt = prompt_text.value
+    if prompt == None:
+        prompt = ""
+    else:
+        prompt = "/?query=" + prompt
+
+    generated = await fetch_locations(prompt)
+    generated_text = ""
+    for i in generated:
+        generated_text+= i + "\n"
+    locations_text.value = generated_text
 
 game.classList.add("hidden")
 reset_btn.style.display = "none"

@@ -1,5 +1,6 @@
-from js import document
+from js import document, fetch
 import random
+import asyncio
 
 setup = document.getElementById("setup")
 game = document.getElementById("game")
@@ -23,6 +24,13 @@ location = ""
 current_player = 0
 revealed = False
 spies_list = ""
+
+async def fetch_locations():
+    url = "https://spygame-ai.witold-zzak.workers.dev/?query=miejsca"
+    response = await fetch(url)
+    text = await response.text()
+    generated = [line.strip() for line in text.splitlines() if line.strip()]
+    return generated
 
 def submit_event(event=None):
     global locations, players, spies, location, current_player, revealed, spies_list
@@ -99,8 +107,10 @@ def reset_game(event=None):
     player_name.innerText = ""
     player_progress.innerText = ""
 
-def generate_list(event=None):
-    locations_text.value = prompt_text.value
+async def generate_list(event=None):
+    generated = await fetch_locations()
+    #locations_text.value = prompt_text.value
+    locations_text.value = generated
 
 game.classList.add("hidden")
 reset_btn.style.display = "none"

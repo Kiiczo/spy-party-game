@@ -1,19 +1,126 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <title>Spy Game</title>
-          <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
-  </head>
-  <body>
-    <h1>Spy Game</h1>
-    <script type="py" src="./main.py" config="./pyscript.json"></script>
-    <textarea id="locations" placeholder="Locations..." rows="4" cols="50"></textarea>
-    <textarea id="players" placeholder="Players..." rows="4" cols="50"></textarea>
-    <div id="game-text"></div>
-    <script type="py" src="./main.py" config="./pyscript.json"></script>
-    <button id="submit" py-click="submit_event">Submit</button>
-    <button id="next-button" py-click="next_step" style="display: none;">Next</button>
-  </body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Spy Game</title>
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f7f8fa;
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 32px auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 32px 24px 24px 24px;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .desc {
+            text-align: center;
+            color: #444;
+            font-size: 1.05em;
+            margin-bottom: 24px;
+        }
+        label {
+            font-weight: 600;
+            margin-top: 16px;
+            display: block;
+            margin-bottom: 6px;
+        }
+        textarea, input[type="number"] {
+            width: 100%;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 12px;
+            background: #f7f8fa;
+            resize: vertical;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary {
+            background: #22c55e;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #16a34a;
+        }
+        .btn-blue {
+            background: #2563eb;
+            color: #fff;
+        }
+        .btn-blue:hover {
+            background: #1d4ed8;
+        }
+        .btn-grey {
+            background: #e5e7eb;
+            color: #222;
+        }
+        .role-box {
+            background: #f1f5fd;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 18px 0 18px 0;
+            text-align: center;
+            font-size: 1.08em;
+        }
+        .player-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin: 8px 0 8px 0;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        .hidden { display: none; }
+        .center { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spy Game</h1>
+        <div id="setup">
+            <div class="desc">
+                Enter the list of locations and players.<br>
+                One or more players will be spies.<br>
+                Pass the device to each player and click 'Next' to reveal their role.
+            </div>
+            <label for="locations">Locations</label>
+            <textarea id="locations" rows="4" placeholder="Enter locations (one per line)&#10;e.g.&#10;Beach&#10;Library&#10;Restaurant"></textarea>
+            <label for="players">Players</label>
+            <textarea id="players" rows="3" placeholder="Enter player names (separated by spaces or new lines)&#10;e.g. Alice Bob Charlie Diana"></textarea>
+            <label for="spy-count">Number of spies</label>
+            <input type="number" id="spy-count" min="1" value="1" max="10" />
+            <button class="btn btn-primary" id="start-btn" py-click="submit_event">Start Game</button>
+        </div>
+        <div id="game" class="hidden">
+            <div class="center" id="player-progress"></div>
+            <div class="player-name" id="player-name"></div>
+            <div class="role-box" id="role-box"></div>
+            <button class="btn btn-blue" id="reveal-btn" py-click="reveal_role">Reveal Role</button>
+            <button class="btn btn-grey" id="next-btn" py-click="next_player">Next</button>
+            <button class="btn btn-grey" id="reset-btn" py-click="reset_game">Start New Game</button>
+        </div>
+    </div>
+    <script type="py" src="./main.py"></script>
+</body>
 </html>

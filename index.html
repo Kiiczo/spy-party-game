@@ -8,12 +8,12 @@
   </head>
   <body>
     <h1>Spy Game</h1>
-    <div id="output"></div>
     <script type="py" src="./main.py" config="./pyscript.json"></script>
     <textarea id="locations" placeholder="Locations..." rows="4" cols="50"></textarea>
     <textarea id="players" placeholder="Players..." rows="4" cols="50"></textarea>
-    <div id="output"></div>
+    <div id="game-text"></div>
     <script type="py" src="./main.py" config="./pyscript.json"></script>
     <button id="submit" py-click="submit_event">Submit</button>
+    <button id="next-button" py-click="next_step" style="display: none;">Next</button>
   </body>
 </html>

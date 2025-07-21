@@ -14,6 +14,7 @@ reveal_btn = document.getElementById("reveal-btn")
 next_btn = document.getElementById("next-btn")
 reset_btn = document.getElementById("reset-btn")
 generate_btn = document.getElementById("generate-btn")
+prompt_text = document.getElementById("prompt")
 
 locations = []
 players = []
@@ -99,7 +100,7 @@ def reset_game(event=None):
     player_progress.innerText = ""
 
 def generate_list(event=None):
-    locations_text.value = "Generate"
+    locations_text.value = prompt_text.value
 
 game.classList.add("hidden")
 reset_btn.style.display = "none"

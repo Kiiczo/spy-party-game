@@ -40,14 +40,19 @@ def submit_event(event=None):
     locations = [l.strip() for l in locations_text.value.strip().splitlines() if l.strip()]
     players = [p.strip() for p in players_text.value.replace('\n', ' ').split() if p.strip()]
 
+    if not locations or not players:
+        return None
+    
     spy_count = int(spy_count_input.value)
     if spy_count < 1: spy_count = 1
     if spy_count > len(players): spy_count = len(players)
 
     spies = random.sample(players, spy_count)
     spies_list = ""
+
     for i in spies:
         spies_list = spies_list + " " + i
+        
     location = random.choice(locations)
     current_player = 0
     revealed = False

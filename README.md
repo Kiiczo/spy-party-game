@@ -1,8 +1,8 @@
-# Spy Game Web
+# Spy Game
 
 ## Description
 
-A simple browser-based version of the classic party game **Spyfall**. Easily create a set of locations and players, then play with friends—no accounts or downloads required. Built with [PyScript](https://pyscript.net/) and hosted on GitHub Pages using a template from [Nicholas Tollervey](https://github.com/ntoll).
+Spy Game is a fast, browser-based version of the classic party game **Spyfall**—now with new features! Easily create your own set of locations and players, adjust the number of spies, and let each player reveal their role privately. Generate location lists using AI, and play with friends in person or online. Built with [PyScript](https://pyscript.net/) and hosted easily on GitHub Pages.
 
 ## Table of Contents
 
@@ -15,45 +15,51 @@ A simple browser-based version of the classic party game **Spyfall**. Easily cre
 
 ## Installation
 
-   - You can open the index.html directly in your browser
-   - https://kiiczo.github.io/spy-party-game
+**Open `index.html` in your browser.**
+- Or [host on GitHub Pages](https://pages.github.com/) for easy sharing.
+
+No additional setup is required!
 
 ## Usage
 
-1. **Enter Locations and Players**  
-   - Input each location on a new line in the **Locations** box. Tip: For inspiration, I recommend asking ChatGPT for a set of Spyfall locations!
-   - Input each player name on a new line in the **Players** box (avoid spaces).
-
-2. **Start the Game**  
-   - Click **Submit** to begin. The input fields will hide, and the game will randomly assign one player as the spy and select a location.
-
-3. **Playing the Game**  
-   - Click **Next** to cycle through players.  
-   - Each player confirms they have the device by clicking **Yes**.  
-   - Non-spies see the secret location; the spy sees a message identifying them as the spy.
-
-4. **Resetting**  
-   - After all players have viewed their info, the **Next** button changes to **Reset**, which resets the game and shows the input fields again.
+1. **Enter Locations:**  
+   - Type each location on a new line.  
+   - *Tip:* Use the AI generator by entering a keyword (e.g., "location", "marvel-characters") and clicking "Generate list by ai" for instant ideas.
+2. **Enter Players:**  
+   - Input player names separated by spaces or new lines.  
+   - **Note:** Player names cannot contain spaces.
+3. **Choose Number of Spies:**  
+   - Set the number of spies for this round (minimum 1, up to the number of players).
+4. **Start Game:**  
+   - Click "Start Game." Pass the device to each player and let them reveal their secret role.
+   - Spies will see their status (and, if more than one, their fellow spies). Others see the secret location.
+5. **Play:**  
+   - Ask questions, try to blend in or catch the spy!
 
 ### Game Rules
 
-- The spy does not know the location.
-- Non-spies try to identify the spy without revealing the location.
-- The spy wins by guessing the location or evading detection.
-- Players after some time vote to reveal the spy.
+- One or more players are randomly assigned as spies; others know the same secret location.
+- Players ask one another questions about the location. The spy tries to guess the location without being discovered.
+- At any time, players may vote on who they think the spy is, or the spy may try to guess the location.
+- **Locations:** Each location must be on a separate line.  
+  *Need ideas?* Use the built-in AI generator!
+- **Player Names:** No spaces allowed (use underscores or dashes if needed).
 
 ## Features
 
-- 🎲 **Custom Locations:** Enter any set of locations you like.
-- 👥 **Flexible Player Setup:** Add/remove players easily.
+- 🎲 **Custom & AI-Generated Locations:** Enter your own or generate lists with built-in AI support.
+- 🕵️ **Multiple Spies:** Set how many spies are in each game.
+- 👥 **Flexible Player Input:** Add players easily, using spaces or new lines.
+- 🔒 **Private Role Reveal:** Each player sees their role individually.
 - ⚡ **Quick Start:** No registration, no downloads.
-- 🐍 **PyScript Powered:** Game logic runs in the browser using Python.
-- ☁️ **GitHub Pages Hosting:** Share and play instantly.
+- 🐍 **PyScript Powered:** Runs entirely in your browser.
+- ☁️ **Easy Hosting:** Works great on GitHub Pages.
 
 ## Contributing
 
 Contributions are welcome!  
-Feel free to open issues or submit pull requests for improvements, bug fixes, or new features.
+- Open issues for bugs or feature requests.
+- Submit pull requests for improvements.
 
 ## License
 
@@ -62,4 +68,5 @@ This project is licensed under the MIT License.
 ## Acknowledgements
 
 - [PyScript](https://pyscript.net/) for enabling Python in the browser.
-- [Nicholas Tollervey](https://github.com/ntoll) for the PyScript template.
+- [Nicholas Tollervey](https://github.com/ntoll) for the PyScript template inspiration. 
+- Cloudflare for the AI-powered location generation backend.

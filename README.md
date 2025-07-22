@@ -15,8 +15,7 @@ Spy Game is a fast, browser-based version of the classic party game **Spyfall**â
 
 ## Installation
 
-**Open `index.html` in your browser.**
-- Or [host on GitHub Pages](https://pages.github.com/) for easy sharing.
+- https://kiiczo.github.io/spy-party-game
 
 No additional setup is required!
 
